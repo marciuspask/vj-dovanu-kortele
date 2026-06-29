@@ -373,7 +373,7 @@
         const el = document.getElementById("gift-card");
         const canvas = await html2canvas(el, {
           scale: 2, useCORS: true, allowTaint: true,
-          backgroundColor: "#F7F3EC",
+          backgroundColor: "#F5F0E8",
           logging: false,
           windowWidth: el.scrollWidth, windowHeight: el.scrollHeight,
         });
@@ -384,7 +384,7 @@
         const pw = pdf.internal.pageSize.getWidth();
         const ph = pdf.internal.pageSize.getHeight();
         // Fill entire page with cream so no white borders show
-        pdf.setFillColor(247, 243, 236);
+        pdf.setFillColor(245, 240, 232);
         pdf.rect(0, 0, pw, ph, "F");
         pdf.addImage(imgData,"JPEG", 0, 0, pw, ph);
         pdf.save("dovanu-kortele-"+no+".pdf");
