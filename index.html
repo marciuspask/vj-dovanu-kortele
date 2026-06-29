@@ -278,8 +278,6 @@
   <script>
   (function () {
     "use strict";
-    // Įklijuok savo Apps Script URL čia:
-    const SHEETS_URL = "";
     const pad = n => String(n).padStart(2, "0");
 
     const exp = new Date();
@@ -349,21 +347,19 @@
         toast("Kortelė "+no+" sukurta!");
 
         // Išsaugoti į Google Sheets
-        if (SHEETS_URL) {
-          const today = new Date();
-          const generated = pad(today.getDate())+"."+pad(today.getMonth()+1)+"."+today.getFullYear();
-          fetch(SHEETS_URL, {
-            method: "POST",
-            headers: { "Content-Type": "text/plain" },
-            body: JSON.stringify({
-              no,
-              to: toName,
-              amount: "€"+parseFloat(amount).toFixed(2),
-              expiry: fmtDate(expiry),
-              generated
-            })
-          }).catch(() => {}); // tylusis fail — PDF jau išsaugotas
-        }
+        const today = new Date();
+        const generated = pad(today.getDate())+"."+pad(today.getMonth()+1)+"."+today.getFullYear();
+        fetch("https://script.google.com/macros/s/AKfycbwYCn2xlJ0bHrxMHNZ3tqKvHO0dBD0aQpnoIqVMZhWvHcOjED93D91jyPX6dcWxJjszjA/exec", {
+          method: "POST",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify({
+            no,
+            to: toName,
+            amount: "€"+parseFloat(amount).toFixed(2),
+            expiry: fmtDate(expiry),
+            generated
+          })
+        }).catch(() => {}); // tylusis fail — PDF jau išsaugotas
 
       } catch(err) {
         console.error(err); toast("Klaida. Bandykite dar kartą.");
