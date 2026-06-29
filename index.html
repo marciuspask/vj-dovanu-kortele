@@ -389,7 +389,8 @@
         pdf.setFillColor(245, 240, 232);
         pdf.rect(0, 0, pw, ph, "F");
         pdf.addImage(imgData,"JPEG", 0, 0, pw, ph);
-        pdf.save("dovanu-kortele-"+no+".pdf");
+        const pdfUrl = URL.createObjectURL(pdf.output("blob"));
+        window.open(pdfUrl, "_blank");
         toast("Kortelė "+no+" sukurta!");
 
         // Išsaugoti į Google Sheets
