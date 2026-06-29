@@ -118,8 +118,8 @@
       position: absolute;
       left: -14000px;
       top: 0;
-      width: 840px;
-      height: 592px;
+      width: 680px;
+      height: 420px;
       background: #F5F0E8;
       font-family: "Montserrat", sans-serif;
       color: #2C2420;
@@ -128,7 +128,7 @@
     .gc-wrap {
       width: 100%;
       height: 100%;
-      padding: 38px 54px 32px 54px;
+      padding: 28px 44px 24px 44px;
       display: flex;
       flex-direction: column;
       border: 1px solid #C9A84C;
@@ -146,22 +146,22 @@
       font-family: "Cormorant Garamond", serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 52px;
+      font-size: 42px;
       color: #2C2420;
       line-height: 1;
       letter-spacing: -0.01em;
     }
     .gc-logo-wrap img {
-      max-height: 72px;
-      max-width: 200px;
+      max-height: 56px;
+      max-width: 160px;
       object-fit: contain;
     }
 
     /* Gold rule */
-    .gc-rule { height: 1px; background: #C9A84C; margin-bottom: 18px; opacity: 0.8; }
+    .gc-rule { height: 1px; background: #C9A84C; margin-bottom: 12px; opacity: 0.8; }
 
     /* Fields */
-    .gc-field { margin-bottom: 14px; }
+    .gc-field { margin-bottom: 10px; }
     .gc-field-lbl {
       font-size: 8px;
       font-weight: 600;
@@ -305,8 +305,8 @@
       <div class="gc-bottom">
         <div class="gc-contact">
           <strong>Užsakymams ir informacijai:</strong><br>
-          &#9990; Tel.: +370 696 21 470<br>
-          &#9679; Adresas: Savanorių pr. 184 &middot; 208 kab., Kaunas
+          &#9990; Tel.: +370 686 22 470<br>
+          &#9679; Adresas: Savanorių pr. 194 &middot; 208 kab., Kaunas
         </div>
         <div class="gc-nr" id="gcNo"></div>
       </div>
@@ -373,7 +373,7 @@
 
         const { jsPDF } = window.jspdf;
         const imgData = canvas.toDataURL("image/jpeg", 0.97);
-        const pdf = new jsPDF({ orientation:"landscape", unit:"mm", format:"a5" });
+        const pdf = new jsPDF({ orientation:"landscape", unit:"mm", format:"a6" });
         const pw = pdf.internal.pageSize.getWidth();
         const ph = pdf.internal.pageSize.getHeight();
         // Fill entire page with cream so no white borders show
