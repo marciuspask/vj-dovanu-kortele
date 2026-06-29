@@ -141,85 +141,75 @@
       margin-bottom: 14px;
     }
     .gc-logo-wrap img {
-      max-height: 70px;
-      max-width: 190px;
+      max-height: 90px;
+      max-width: 220px;
       object-fit: contain;
     }
     /* Heading */
-    .gc-heading {
-      line-height: 1;
-    }
+    .gc-heading { line-height: 1; }
     .gc-title-caps {
       font-family: "Playfair Display", serif;
-      font-weight: 700;
-      font-size: 28px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 42px;
       color: #2C2420;
     }
     .gc-title-italic {
       font-family: "Playfair Display", serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 28px;
+      font-size: 42px;
       color: #2C2420;
     }
     /* Gold rule — paslėptas */
     .gc-rule { display: none; }
-    /* Form field rows */
-    .gc-row {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 10px;
+    /* Fields: label above, value below with underline */
+    .gc-field { margin-bottom: 10px; }
+    .gc-field-lbl {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #A89880;
+      margin-bottom: 2px;
     }
-    .gc-lbl {
-      font-family: "Montserrat", sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      color: #2C2420;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .gc-line {
-      flex: 1;
-      border-bottom: 1px solid #2C2420;
-      padding-bottom: 2px;
+    .gc-field-val {
       font-family: "Playfair Display", serif;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 400;
       color: #2C2420;
-      min-width: 0;
+      border-bottom: 1px solid #C8B99A;
+      padding-bottom: 4px;
+      min-height: 30px;
     }
-    .gc-line-gold {
-      flex: 1;
-      border-bottom: 1px solid #2C2420;
-      padding-bottom: 2px;
+    .gc-row2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+      margin-bottom: 10px;
+    }
+    .gc-amount-val {
       font-family: "Playfair Display", serif;
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 32px;
+      font-weight: 400;
       color: #C9A84C;
-      min-width: 0;
+      border-bottom: 1px solid #C8B99A;
+      padding-bottom: 2px;
+      line-height: 1.1;
     }
-    .gc-spacer { height: 10px; }
-    /* Contact centered */
+    .gc-spacer { flex: 1; }
+    /* Contact bottom left */
     .gc-contact {
-      text-align: center;
       font-size: 9px;
       font-weight: 400;
       color: #555;
       line-height: 1.75;
-      margin-bottom: 10px;
     }
-    .gc-contact strong {
-      font-weight: 600;
-      font-size: 9.5px;
-    }
-    /* Nr bottom left */
-    .gc-nr-row {
+    .gc-contact strong { font-weight: 600; font-size: 9.5px; }
+    /* Nr bottom right */
+    .gc-bottom {
       display: flex;
-      align-items: baseline;
-      gap: 6px;
+      justify-content: space-between;
+      align-items: flex-end;
     }
     .gc-nr-lbl {
       font-family: "Montserrat", sans-serif;
@@ -296,34 +286,36 @@
 
       <div class="gc-rule"></div>
 
-      <div class="gc-row">
-        <span class="gc-lbl">Gerb.</span>
-        <div class="gc-line" id="gcTo"></div>
+      <div class="gc-field">
+        <div class="gc-field-lbl">Gerb.</div>
+        <div class="gc-field-val" id="gcTo"></div>
       </div>
 
-      <div class="gc-row">
-        <span class="gc-lbl">Dovanojama</span>
-        <div class="gc-line" id="gcDovanojama"></div>
+      <div class="gc-field">
+        <div class="gc-field-lbl">Dovanojama</div>
+        <div class="gc-field-val" id="gcDovanojama"></div>
       </div>
 
-      <div class="gc-row">
-        <span class="gc-lbl">Kupono vert&#279;</span>
-        <div class="gc-line-gold" id="gcAmount" style="max-width:180px"></div>
-        <span class="gc-lbl" style="margin-left:16px">Galioja iki</span>
-        <div class="gc-line" id="gcExpiry"></div>
+      <div class="gc-row2">
+        <div class="gc-field" style="margin-bottom:0">
+          <div class="gc-field-lbl">Kupono vert&#279;</div>
+          <div class="gc-amount-val" id="gcAmount"></div>
+        </div>
+        <div class="gc-field" style="margin-bottom:0">
+          <div class="gc-field-lbl">Galioja iki</div>
+          <div class="gc-field-val" id="gcExpiry"></div>
+        </div>
       </div>
 
       <div class="gc-spacer"></div>
 
-      <div class="gc-contact">
-        <strong>U&#382;sakymams ir informacijai:</strong><br>
-        &#9990;&nbsp;Tel.: +370 686 22 470&nbsp;&nbsp;&nbsp;
-        &#9679;&nbsp;Adresas: Savanori&#371; pr. 194 &middot; 208 kab., Kaunas
-      </div>
-
-      <div class="gc-nr-row">
-        <span class="gc-nr-lbl">Nr.</span>
-        <span class="gc-nr-val" id="gcNo"></span>
+      <div class="gc-bottom">
+        <div class="gc-contact">
+          <strong>U&#382;sakymams ir informacijai:</strong><br>
+          &#9990; Tel.: +370 686 22 470<br>
+          &#9679; Adresas: Savanori&#371; pr. 194 &middot; 208 kab., Kaunas
+        </div>
+        <div style="font-size:8px;font-weight:300;letter-spacing:0.18em;color:#C8B99A;text-align:right" id="gcNo"></div>
       </div>
 
     </div>
