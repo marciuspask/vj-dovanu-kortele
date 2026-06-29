@@ -390,7 +390,15 @@
         pdf.rect(0, 0, pw, ph, "F");
         pdf.addImage(imgData,"JPEG", 0, 0, pw, ph);
         const pdfUrl = URL.createObjectURL(pdf.output("blob"));
-        window.open(pdfUrl, "_blank");
+        const newTab = window.open(pdfUrl, "_blank");
+        if (!newTab) {
+          const a = document.createElement("a");
+          a.href = pdfUrl;
+          a.download = "dovanu-kortele-"+no+".pdf";
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(() => document.body.removeChild(a), 100);
+        }
         toast("Kortelė "+no+" sukurta!");
 
         // Išsaugoti į Google Sheets
